@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Western Approaches</title>
+</head>
+
+<style>
+html, body {
+    height: 100%;
+    margin: 0;         /* Reset default margin on the body element */
+}
+ /*   .content {
+  max-width: 500px;
+  margin: auto;
+} */
+
+/*------The page loader styling--------*/
+
+.loader_bg{
+    position: fixed;
+    z-index: 999999;
+    background: #000000;
+    width: 100%;
+    height: 100%;
+}
+.loader{
+    border: 0 soild transparent;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    top: calc(50vh - 75px);
+    left: calc(50vw - 75px);
+}
+.loader:before, .loader:after{
+    content: '';
+    border: 1em solid #35530a;
+    border-radius: 50%;
+    width: inherit;
+    height: inherit;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: loader 2s linear infinite;
+    opacity: 0;
+}
+.loader:before{
+    animation-delay: .5s;
+}
+@keyframes loader{
+    0%{
+        transform: scale(0);
+        opacity: 0;
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+
+/*-------Popup timeout box---------*/
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+</style>
+
+<body>
+<!--The page loader-->
+<div class="loader_bg">
+    <div class="loader"></div>
+</div>
+<!--Jitsi API iframe-->
+    <script src="https://meet.jit.si/external_api.js"></script>
+    <script>
+        var domain = "meet.jit.si";
+        var options = {
+            roomName: "WesternApproaches",
+            width: "100%",
+            height: "100%",
+            parentNode: undefined,
+            userInfo: {
+                displayName: 'Western Approaches'
+            },
+            configOverwrite: {
+                prejoinPageEnabled: false
+            },
+            interfaceConfigOverwrite: { 
+                SHOW_CHROME_EXTENSION_BANNER: false
+            }
+        }
+        var api = new JitsiMeetExternalAPI(domain, options);
+    </script>
+<!--Page loader script-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        setTimeout(function(){
+            $('.loader_bg').fadeToggle();
+        }, 1500);
+    </script>
+
+<!--Timeout box-->
+
+<body onload="setTimeout(myFunction, 4000)">
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+    <p>Call will end in 30 seconds. Do you wish to continue talking?</p>
+    <button id="myBtn">Continue</button>
+    <button onclick="window.location.href='entry.html'">No</button>
+    
+    </div>
+
+</div>
+
+<!--Timeout scipt-->
+
+<script>
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// When the specified timeout is done, open the modal 
+function myFunction() {
+    modal.style.display = "block";
+    myTimeout = setTimeout(function(){ window.location.href= 'entry.html';}, 3000);
+}
+
+// When the user clicks on continue, close the modal and reset timing
+btn.onclick = function() {
+    modal.style.display = "none";
+    clearTimeout(myTimeout);
+    setTimeout(function(){myFunction();}, 4000);
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+    modal.style.display = "none";
+    }
+}
+</script>
+</body>
+</html>
