@@ -4,27 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Western Approaches</title>
+    <title>Welcome to Western Approaches</title>
 </head>
 
 <style>
-html, body {
-    height: 100%;
-    margin: 0;         /* Reset default margin on the body element */
-}
- /*   .content {
-  max-width: 500px;
-  margin: auto;
-} */
-
-body, h1, h2, h3, h4, h5, h6  {
-  font-family: Arial, Helvetica, sans-serif ;
-  text-align:center;
-  margin: 0;
-}
-
-/*------The page loader styling--------*/
-
 .loader_bg{
     position: fixed;
     z-index: 999999;
@@ -43,7 +26,7 @@ body, h1, h2, h3, h4, h5, h6  {
 }
 .loader:before, .loader:after{
     content: '';
-    border: 1em solid #34520a;
+    border: 1em solid #35530a;
     border-radius: 50%;
     width: inherit;
     height: inherit;
@@ -70,140 +53,128 @@ body, h1, h2, h3, h4, h5, h6  {
     }
 }
 
-/*-------Popup timeout box---------*/
 
-/* The Modal (background) */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    /* padding-top: 100px; */
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 600px;
-    height: 300px;
+body, h1, h2, h3, h4, h5, h6  {
+  font-family: Arial, Helvetica, sans-serif ;
+  text-align:center;
+  margin: 0;
 }
 
-/* Modal Content */
-.modal-content {
-    background-color: #0e0e0ebd;
-    margin: auto;
-    padding: 24px 0;
-    width: 100%;
-    text-align: center;
-    border-radius: 40px;
-    color: #fff;
-    line-height: 50px;
+h1 { 
+  display: block;
+  font-size: 3em;
+  margin-top: 0.67em;
+  margin-bottom: 0.1em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+  text-shadow: 0px 0px 50px #141414;
 }
 
-.close:hover,
-.close:focus {
-  color: #000;
+h3 {
+  display: block;
+  font-size: 1.5em;
+  margin-top: 0.83em;
+  margin-bottom: 0.83em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+  text-shadow: 0px 0px 50px #141414;
+}
+
+p {
+  display: block;
+  font-size: 2em;
+  margin-top: 0.67em;
+  margin-bottom: 2.20em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+  text-shadow: 0px 0px 50px #141414;
+}
+
+a:link {
   text-decoration: none;
-  cursor: pointer;
+  color: white;
 }
 
-button {
-    background-color: #555;
-    color: white;
-    font-size: 28px;
-    padding: 12px 24px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    margin-top: 20px;
-    /* text-align: center; */
+a:visited {
+  text-decoration: none;
+  color: white;
 }
 
-button:hover {
+a:hover {
+  text-decoration: none;
+  color: white;
+}
+
+a:active {
+  text-decoration: none;
+  color: white;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  background: black;
+}
+
+.container img {
+  width: 100%;
+  height: auto;
+  opacity: 50%;
+}
+
+.container .btn {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
   background-color: #35530a;
+  color: white;
+  font-size: 28px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 0px 0px 30px 0px #141414;
+}
+
+.container .btn:hover {
+  background-color: #111b03;
+}
+
+.centered {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 </style>
 
 <body>
-<!--The page loader-->
+
 <div class="loader_bg">
-    <div class="loader"></div>
+  <div class="loader"></div>
 </div>
-<!--Jitsi API iframe-->
-    <script src="https://meet.jit.si/external_api.js"></script>
-    <script>
-        var domain = "meet.jit.si";
-        var options = {
-            roomName: "WesternApproaches",
-            width: "100%",
-            height: "100%",
-            parentNode: undefined,
-            userInfo: {
-                displayName: 'Western Approaches'
-            },
-            configOverwrite: {
-                prejoinPageEnabled: false
-            },
-            interfaceConfigOverwrite: { 
-                SHOW_CHROME_EXTENSION_BANNER: false
-            }
-        }
-        var api = new JitsiMeetExternalAPI(domain, options);
-    </script>
-<!--Page loader script-->
+
+ <div class="container">
+    <img src="images/russia_slideshow.gif" type="video/mp4" width="100%" height="100%" autoplay muted loop>
+    <button class="btn"><a href="call.html">Communicate</a></button>
+    <div class="centered">
+        <h1 style="color:white">Communicate with<br>The Northern Maritime Museum</h1>
+        <p style="color: white; font-size: 2em">Arkhangelsk, Russia</pp>
+        <h3 style="color:white">Touch below to start the connection</h3>
+    </div>
+</div>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script>
         setTimeout(function(){
             $('.loader_bg').fadeToggle();
         }, 1500);
     </script>
-
-<!--Timeout box-->
-
-<body onload="setTimeout(myFunction, 4000)">
-
-<!-- The Modal -->
-<div id="myModal" class="modal">
-
-    <!-- Modal content -->
-    <div class="modal-content">
-    <h1>Call will end in 30 seconds.</h1>
-    <h2>Do you wish to continue talking?</h2>
-    <button id="myBtn">Continue</button>
-    <button onclick="window.location.href='entry.html'">No</button>
-    
-    </div>
-
-</div>
-
-<!--Timeout scipt-->
-
-<script>
-// Get the modal
-var modal = document.getElementById("myModal");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
-
-// When the specified timeout is done, open the modal 
-function myFunction() {
-    modal.style.display = "block";
-    myTimeout = setTimeout(function(){ window.location.href= 'entry.html';}, 300000000000000000);
-}
-
-// When the user clicks on continue, close the modal and reset timing
-btn.onclick = function() {
-    modal.style.display = "none";
-    clearTimeout(myTimeout);
-    setTimeout(function(){myFunction();}, 40000000000000000);
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-    modal.style.display = "none";
-    }
-}
-</script>
 </body>
 </html>
